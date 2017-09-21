@@ -1,0 +1,28 @@
+#!/bin/bash
+
+FOLDER=$1
+
+if [ -z "$FOLDER" ];then
+	echo "Usage: buildtar folder_to_compress [filename [compress_only_contents]]";
+	exit 1
+fi
+
+
+if [ -z "$2" ];then
+	FILENAME="$FOLDER.tar.gz"
+	echo "Using foldername('$FOLDER') as filename('$FILENAME')";
+else
+   FILENAME="$2.tar.gz"
+fi
+
+MOVEINTODIR=$3
+#FOLDER="$(pwd)/$FOLDER"
+#FILENAME="$(pwd)/$FILENAME"
+echo "Building tarbal..";
+
+if [ -z "$MOVEINTODIR" ];then
+	tar czf $FILENAME --exclude=.git* --exclude=nbproject $FOLDER
+else
+	tar czf $FILENAME --exclude=.git* --exclude=nbproject -C $FOLDER .
+fi
+

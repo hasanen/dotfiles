@@ -1,0 +1,13 @@
+**/**/*.sw?
+.python_version
+.python-version
+__pycache__
+.vagrant
+.ruby-gemset
+tags
+.env
+.env.test
+.env.development
+.config/hub
+project_notes.md
+.byebug_history

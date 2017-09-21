@@ -1,0 +1,2 @@
+#!/bin/bash
+for f in *.mkv;do ffmpeg -i "$f" -c:v copy -c:a aac -b:a 256k -strict -2 "${f%mkv}mp4";done
