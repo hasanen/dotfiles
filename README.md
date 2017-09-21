@@ -1,9 +1,9 @@
 # README
 
-1. Clone repo
+Clone repo
     
-    git clone --recursive git@github.com:hasanen/dotfiles.git
+    $ git clone --recursive git@github.com:hasanen/dotfiles.git
 
-2. Run setup script
+Run setup script
 
     ./setup.sh
