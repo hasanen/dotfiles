@@ -20,7 +20,6 @@ ln -sf $HOME/dotfiles/vim/.vimrc $HOME/
 mkdir -p $HOME/.vim/bundle
 mkdir -p $HOME/.vim/colors
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-wget https://raw.githubusercontent.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim -P ~/.vim/colors/
 
 echo "Linking git configs"
 ln -sf $HOME/dotfiles/git/.gitconfig $HOME/
@@ -40,6 +39,9 @@ ln -sf $HOME/dotfiles/slate/.slate $HOME/
 
 echo "Linking ctags configs"
 ln -sf $HOME/dotfiles/ctags/.ctags $HOME/
+
+echo "Installin RVM"
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 echo "Installing RSVM"
 \curl -L https://raw.github.com/sdepold/rsvm/master/install.sh | sh
@@ -71,12 +73,13 @@ brew install ctags
 brew install yarn
 brew install mosh
 brew install screenfetch
-chsh -s $(which zsh)
+sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
 
 echo "Installing gui software"
+brew cask install spideroakone
 brew cask install dropbox
 brew cask install vlc
 brew cask install alfred
@@ -84,9 +87,8 @@ brew cask install spotify
 brew cask install iterm2
 brew cask install firefox
 brew cask install libreoffice
-brew cask install monosnap
 brew cask install virtualbox
-brew cask install slate
+brew cask install mattr-slate
 brew cask install heroku-toolbelt
 brew cask install dash
 brew cask install gpgtools
@@ -96,12 +98,16 @@ brew cask install adobe-creative-cloud
 brew cask install docker
 brew cask install little-snitch
 brew cask install micro-snitch
-brew cask install spideroakone
 brew cask install standard-notes
 brew cask install kindle
 brew cask install android-sdk
 brew cask install android-studio
 brew cask install postgres
+brew cask install flowdock
+brew cask install slack
+brew cask install postman
+brew cask install thunderbird
+brew cask install freedome
 
 echo "Following apps needs to be installed manually:"
 echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
@@ -109,4 +115,5 @@ echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/develop
 echo "Install following apps from app store"
 echo "- FreckleTimer"
 echo "- Todoist"
+echo "- Monosnap"
 

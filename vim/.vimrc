@@ -21,6 +21,7 @@ Plugin 'othree/html5-syntax.vim' " For HTML5 syntax
 Plugin 'othree/javascript-libraries-syntax.vim' " Syntax higlighting for JS libraries
 Plugin 'pangloss/vim-javascript'
 Plugin 'prettier/vim-prettier'
+Plugin 'quanganhdo/grb256'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
