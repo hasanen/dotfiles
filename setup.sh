@@ -19,6 +19,7 @@ echo "Linking vim configs"
 ln -sf $HOME/dotfiles/vim/.vimrc $HOME/
 mkdir -p $HOME/.vim/bundle
 mkdir -p $HOME/.vim/colors
+wget https://raw.githubusercontent.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim -P ~/.vim/colors/
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Linking git configs"
