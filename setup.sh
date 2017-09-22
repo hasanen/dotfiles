@@ -74,6 +74,7 @@ brew install yarn
 brew install mosh
 brew install screenfetch
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+brew install heroku/brew/heroku
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
@@ -97,7 +98,7 @@ brew cask install keepassxc
 brew cask install adobe-creative-cloud
 brew cask install docker
 brew cask install little-snitch
-brew cask install micro-snitch
+open /usr/local/Caskroom/little-snitch/**/Little\ Snitch\ Installer.app
 brew cask install standard-notes
 brew cask install kindle
 brew cask install android-sdk
@@ -116,4 +117,7 @@ echo "Install following apps from app store"
 echo "- FreckleTimer"
 echo "- Todoist"
 echo "- Monosnap"
+echo "- Micro snitch"
+echo "- FoldingText"
+echo "- Deckset"
 
