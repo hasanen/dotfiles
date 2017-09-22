@@ -2,7 +2,7 @@
 
 Clone repo
     
-    $ git clone --recursive git@github.com:hasanen/dotfiles.git
+    git clone --recursive https://github.com:hasanen/dotfiles.git
 
 Run setup script
 
