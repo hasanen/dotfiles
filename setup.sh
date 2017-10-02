@@ -76,6 +76,7 @@ brew install mosh
 brew install screenfetch
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 brew install heroku/brew/heroku
+brew install reattach-to-user-namespace
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
