@@ -10,5 +10,6 @@ tags
 .env.development
 .config/hub
 project_notes.md
+.project_notes.md
 .byebug_history
 .DS_Store
