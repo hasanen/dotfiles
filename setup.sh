@@ -111,6 +111,7 @@ brew cask install slack
 brew cask install postman
 brew cask install thunderbird
 brew cask install freedome
+brew cask install licecap
 
 echo "Following apps needs to be installed manually:"
 echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
