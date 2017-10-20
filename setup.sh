@@ -41,6 +41,10 @@ ln -sf $HOME/dotfiles/slate/.slate $HOME/
 echo "Linking ctags configs"
 ln -sf $HOME/dotfiles/ctags/.ctags $HOME/
 
+echo "Linking bundler configs"
+mkdir $HOME/.bundle
+ln -sf $HOME/dotfiles/bundle/config $HOME/.bundle/config
+
 echo "Installin RVM"
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
