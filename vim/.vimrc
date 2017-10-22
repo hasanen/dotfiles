@@ -11,7 +11,8 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'godlygeek/tabular' " for text filtering and alignment
 "Plugin 'groenewege/vim-less' " vim syntax for LESS (dynamic CSS)
 Plugin 'janko-m/vim-test'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
+"Plugin 'kien/ctrlp.vim'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'moll/vim-node' "Like vim-rails but for node
 "Plugin 'mustache/vim-mustache-handlebars'
@@ -25,7 +26,6 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
 "Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
 Plugin 'szw/vim-tags'
 Plugin 'slim-template/vim-slim'
 "Plugin 'thoughtbot/vim-rspec'
@@ -37,6 +37,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rvm'
+Plugin 'vim-airline/vim-airline'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,8 +89,6 @@ set winminwidth=30
 set winheight=10
 set winminheight=10
 set winheight=999
-
- set wildignore+=*.o,*.png,*.PNG,*.JPG,*.jpg,*.jpeg,*.JPEG,*.gif,*.pdf,*.jar,*.scssc,coverage/**,tmp/**
 
 " Vim 7.4 is really slow with Ruby files unless you set this.
 set regexpengine=1
@@ -143,6 +143,10 @@ autocmd FileType ruby,rb,yml,sh,py,feature,txt,md,js,jsx,coffee,slim,haml autocm
 
 :autocmd BufEnter * Rvm
 
+set rtp+=/usr/local/opt/fzf
+
+let g:airline#extensions#ale#enabled = 1
+
 vmap <leader>y :w !pbcopy<CR><CR>
 vmap <leader>mnbe "tdma?describe<CR>obefore :each do<CR>end<CR><esc>k"tP'a
 nnoremap <leader>os :vsplit<cr><C-j>:A<cr>
@@ -150,3 +154,6 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>ye <C-v>$y
 nnoremap <leader>pn :split .project_notes.md<cr>
 nnoremap <leader>e :Explore<cr>
+nmap <c-p> :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>r :Tags<CR>
