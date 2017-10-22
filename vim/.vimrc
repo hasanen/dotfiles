@@ -8,27 +8,26 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'godlygeek/tabular' " for text filtering and alignment
-"Plugin 'groenewege/vim-less' " vim syntax for LESS (dynamic CSS)
+Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/lightline.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'junegunn/fzf.vim'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'moll/vim-node' "Like vim-rails but for node
-"Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mxw/vim-jsx'
+"Plugin 'mxw/vim-jsx'
 Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'othree/html5-syntax.vim' " For HTML5 syntax
-Plugin 'othree/javascript-libraries-syntax.vim' " Syntax higlighting for JS libraries
-Plugin 'pangloss/vim-javascript'
+"Plugin 'othree/html5-syntax.vim' " For HTML5 syntax
+"Plugin 'othree/javascript-libraries-syntax.vim' " Syntax higlighting for JS libraries
+"Plugin 'pangloss/vim-javascript'
 Plugin 'prettier/vim-prettier'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
+"Plugin 'rust-lang/rust.vim'
 "Plugin 'scrooloose/nerdcommenter'
+Plugin 'sheerun/vim-polyglot'
+"Plugin 'slim-template/vim-slim'
 Plugin 'szw/vim-tags'
-Plugin 'slim-template/vim-slim'
-"Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
@@ -37,7 +36,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rvm'
-Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
@@ -146,6 +144,68 @@ autocmd FileType ruby,rb,yml,sh,py,feature,txt,md,js,jsx,coffee,slim,haml autocm
 set rtp+=/usr/local/opt/fzf
 
 let g:airline#extensions#ale#enabled = 1
+
+" ALE
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
+
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+
+" Update and show lightline but only if it's visible
+" (e.g., not in Goyo)
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+" GitGutter
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
 
 vmap <leader>y :w !pbcopy<CR><CR>
 vmap <leader>mnbe "tdma?describe<CR>obefore :each do<CR>end<CR><esc>k"tP'a
