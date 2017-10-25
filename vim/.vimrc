@@ -14,28 +14,20 @@ Plugin 'janko-m/vim-test'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'moll/vim-node' "Like vim-rails but for node
-"Plugin 'mxw/vim-jsx'
 Plugin 'mzlogin/vim-markdown-toc'
-"Plugin 'othree/html5-syntax.vim' " For HTML5 syntax
-"Plugin 'othree/javascript-libraries-syntax.vim' " Syntax higlighting for JS libraries
-"Plugin 'pangloss/vim-javascript'
 Plugin 'prettier/vim-prettier'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
-"Plugin 'rust-lang/rust.vim'
-"Plugin 'scrooloose/nerdcommenter'
 Plugin 'sheerun/vim-polyglot'
-"Plugin 'slim-template/vim-slim'
 Plugin 'szw/vim-tags'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
+"Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rvm'
 Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
@@ -68,9 +60,6 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 nmap <silent> <leader>l :TestLast<CR>
 let test#strategy = "dispatch"
-
-" run tests with Dispatch
-let g:rspec_command = "Dispatch rspec {spec}"
 
 " vim-rails mappings
 map <leader>a :A<CR> 
@@ -139,8 +128,6 @@ augroup END " }
 " remove white space
 autocmd FileType ruby,rb,yml,sh,py,feature,txt,md,js,jsx,coffee,slim,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-:autocmd BufEnter * Rvm
-
 set rtp+=/usr/local/opt/fzf
 
 let g:airline#extensions#ale#enabled = 1
@@ -151,58 +138,59 @@ let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
-" Lightline
-let g:lightline = {
-\ 'colorscheme': 'wombat',
-\ 'active': {
-\   'left': [['mode', 'paste'], ['filename', 'modified']],
-\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
-\ },
-\ 'component': {
-\ 'filename': '%f'
-\ },
-\ 'component_expand': {
-\   'linter_warnings': 'LightlineLinterWarnings',
-\   'linter_errors': 'LightlineLinterErrors',
-\   'linter_ok': 'LightlineLinterOK'
-\ },
-\ 'component_type': {
-\   'readonly': 'error',
-\   'linter_warnings': 'warning',
-\   'linter_errors': 'error'
-\ },
-\ }
 
-function! LightlineLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
-endfunction
+" " Lightline
+" let g:lightline = {
+" \ 'colorscheme': 'wombat',
+" \ 'active': {
+" \   'left': [['mode', 'paste'], ['filename', 'modified']],
+" \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+" \ },
+" \ 'component': {
+" \ 'filename': '%f'
+" \ },
+" \ 'component_expand': {
+" \   'linter_warnings': 'LightlineLinterWarnings',
+" \   'linter_errors': 'LightlineLinterErrors',
+" \   'linter_ok': 'LightlineLinterOK'
+" \ },
+" \ 'component_type': {
+" \   'readonly': 'error',
+" \   'linter_warnings': 'warning',
+" \   'linter_errors': 'error'
+" \ },
+" \ }
 
-function! LightlineLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
-endfunction
+" function! LightlineLinterWarnings() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+" endfunction
 
-function! LightlineLinterOK() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓ ' : ''
-endfunction
+" function! LightlineLinterErrors() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+" endfunction
 
-autocmd User ALELint call s:MaybeUpdateLightline()
+" function! LightlineLinterOK() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '✓ ' : ''
+" endfunction
 
-" Update and show lightline but only if it's visible
-" (e.g., not in Goyo)
-function! s:MaybeUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
+" autocmd User ALELint call s:MaybeUpdateLightline()
+
+" " Update and show lightline but only if it's visible
+" " (e.g., not in Goyo)
+" function! s:MaybeUpdateLightline()
+"   if exists('#lightline')
+"     call lightline#update()
+"   end
+" endfunction
 
 " GitGutter
 let g:gitgutter_sign_added = '∙'
