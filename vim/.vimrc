@@ -28,7 +28,6 @@ Plugin 'tpope/vim-rails'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
-Plugin 'wakatime/vim-wakatime'
 Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
