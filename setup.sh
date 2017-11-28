@@ -102,7 +102,6 @@ brew cask install heroku-toolbelt
 brew cask install dash
 brew cask install gpgtools
 brew cask install toggldesktop
-brew cask install keepassxc
 brew cask install adobe-creative-cloud
 brew cask install docker
 brew cask install little-snitch
@@ -119,6 +118,7 @@ brew cask install thunderbird
 brew cask install freedome
 brew cask install licecap
 brew cask install telegram
+brew cask install 1password
 
 echo "Following apps needs to be installed manually:"
 echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
