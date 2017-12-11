@@ -83,11 +83,14 @@ brew install heroku/brew/heroku
 brew install reattach-to-user-namespace
 brew install watchman
 brew install fzf
+brew install elasticsearch@5.6
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
 
 echo "Installing gui software"
+brew cask install 1password
+brew cask install java
 brew cask install spideroakone
 brew cask install dropbox
 brew cask install vlc
@@ -100,8 +103,8 @@ brew cask install virtualbox
 brew cask install mattr-slate
 brew cask install heroku-toolbelt
 brew cask install dash
-brew cask install gpgtools
-brew cask install toggldesktop
+brew cask install gpg-suite
+brew cask install toggl
 brew cask install adobe-creative-cloud
 brew cask install docker
 brew cask install little-snitch
@@ -118,7 +121,6 @@ brew cask install thunderbird
 brew cask install freedome
 brew cask install licecap
 brew cask install telegram
-brew cask install 1password
 
 echo "Following apps needs to be installed manually:"
 echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
