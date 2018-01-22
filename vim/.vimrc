@@ -8,8 +8,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mfukar/robotframework-vim'
@@ -137,66 +135,6 @@ let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
-
-
-" " Lightline
-" let g:lightline = {
-" \ 'colorscheme': 'wombat',
-" \ 'active': {
-" \   'left': [['mode', 'paste'], ['filename', 'modified']],
-" \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
-" \ },
-" \ 'component': {
-" \ 'filename': '%f'
-" \ },
-" \ 'component_expand': {
-" \   'linter_warnings': 'LightlineLinterWarnings',
-" \   'linter_errors': 'LightlineLinterErrors',
-" \   'linter_ok': 'LightlineLinterOK'
-" \ },
-" \ 'component_type': {
-" \   'readonly': 'error',
-" \   'linter_warnings': 'warning',
-" \   'linter_errors': 'error'
-" \ },
-" \ }
-
-" function! LightlineLinterWarnings() abort
-"   let l:counts = ale#statusline#Count(bufnr(''))
-"   let l:all_errors = l:counts.error + l:counts.style_error
-"   let l:all_non_errors = l:counts.total - l:all_errors
-"   return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
-" endfunction
-
-" function! LightlineLinterErrors() abort
-"   let l:counts = ale#statusline#Count(bufnr(''))
-"   let l:all_errors = l:counts.error + l:counts.style_error
-"   let l:all_non_errors = l:counts.total - l:all_errors
-"   return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
-" endfunction
-
-" function! LightlineLinterOK() abort
-"   let l:counts = ale#statusline#Count(bufnr(''))
-"   let l:all_errors = l:counts.error + l:counts.style_error
-"   let l:all_non_errors = l:counts.total - l:all_errors
-"   return l:counts.total == 0 ? '✓ ' : ''
-" endfunction
-
-" autocmd User ALELint call s:MaybeUpdateLightline()
-
-" " Update and show lightline but only if it's visible
-" " (e.g., not in Goyo)
-" function! s:MaybeUpdateLightline()
-"   if exists('#lightline')
-"     call lightline#update()
-"   end
-" endfunction
-
-" GitGutter
-let g:gitgutter_sign_added = '∙'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_removed = '∙'
-let g:gitgutter_sign_modified_removed = '∙'
 
 vmap <leader>y :w !pbcopy<CR><CR>
 vmap <leader>mnbe "tdma?describe<CR>obefore :each do<CR>end<CR><esc>k"tP'a
