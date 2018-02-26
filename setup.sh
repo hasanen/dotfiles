@@ -47,13 +47,13 @@ ln -sf $HOME/dotfiles/bundle/config $HOME/.bundle/config
 
 echo "Installin RVM"
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
+\rvm gemset globalcache enable
 
 echo "Installing RSVM"
 \curl -L https://raw.github.com/sdepold/rsvm/master/install.sh | sh
 
 echo "Installing NVM"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
-
 
 echo "Installing brew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
