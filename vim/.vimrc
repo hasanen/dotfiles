@@ -26,7 +26,7 @@ Plugin 'tpope/vim-rails'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
