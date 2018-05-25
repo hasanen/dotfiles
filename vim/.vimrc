@@ -7,7 +7,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'gorkunov/smartpairs.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mfukar/robotframework-vim'
