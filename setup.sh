@@ -58,6 +58,9 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | b
 echo "Installing brew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+echo "Install klex"
+\curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
+
 echo "Installing cli software"
 brew install ffmpeg
 brew install pyenv
@@ -83,7 +86,7 @@ brew install heroku/brew/heroku
 brew install reattach-to-user-namespace
 brew install watchman
 brew install fzf
-brew install elasticsearch@5.6
+brew install erlang
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
