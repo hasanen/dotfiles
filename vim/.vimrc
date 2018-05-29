@@ -41,8 +41,6 @@ set shiftwidth=2
 set smartindent
 set autoindent
 set backspace=2
-set cursorline
-set relativenumber
 
 syntax on             " Enable syntax highlighting
 filetype indent on    " Enable filetype-specific indenting
