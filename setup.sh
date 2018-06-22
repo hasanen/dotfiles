@@ -136,3 +136,5 @@ echo "- Micro snitch"
 echo "- FoldingText"
 echo "- Deckset"
 
+echo "Set contact information with: sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText \"Message\""
+
