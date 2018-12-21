@@ -45,10 +45,6 @@ echo "Linking bundler configs"
 mkdir $HOME/.bundle
 ln -sf $HOME/dotfiles/bundle/config $HOME/.bundle/config
 
-echo "Installin RVM"
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-\rvm gemset globalcache enable
-
 echo "Installing RSVM"
 \curl -L https://raw.github.com/sdepold/rsvm/master/install.sh | sh
 
@@ -87,6 +83,7 @@ brew install reattach-to-user-namespace
 brew install watchman
 brew install fzf
 brew install erlang
+brew install rbenv
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask
