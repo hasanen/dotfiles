@@ -15,3 +15,5 @@ project_notes.md
 .DS_Store
 *.gem
 *.xcodeproj/project.xcworkspace/xcshareddata/
+.vscode
+*.code-workspace

@@ -27,6 +27,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 "Plugin 'w0rp/ale'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'mhinz/vim-mix-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -94,13 +96,15 @@ nnoremap <leader><space> :noh<cr>
 set list
 set listchars=tab:▸\ ,eol:¬
 
+let g:mix_format_on_save = 1
+
 " correct movement
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
-inoremap <down> <nop>
+noremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
@@ -125,6 +129,7 @@ augroup END " }
 autocmd FileType ruby,rb,yml,sh,py,feature,txt,md,js,jsx,coffee,slim,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'down': '~40%' }
 
 let g:airline#extensions#ale#enabled = 1
 
@@ -133,6 +138,25 @@ let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
+
+" Prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre  *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" single quotes over double quotes
+" Prettier default: false
+let g:prettier#config#single_quote = 'false'
+
+" print spaces between brackets
+" Prettier default: true
+let g:prettier#config#bracket_spacing = 'true'
+
+" put > on the last line instead of new line
+" Prettier default: false
+let g:prettier#config#jsx_bracket_same_line = 'false'
+" none|es5|all
+" Prettier default: none
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#config_precedence = 'prefer-file'
 
 vmap <leader>y :w !pbcopy<CR><CR>
 vmap <leader>mnbe "tdma?describe<CR>obefore :each do<CR>end<CR><esc>k"tP'a
