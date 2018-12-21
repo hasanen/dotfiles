@@ -128,7 +128,6 @@ echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/develop
 echo "Install following apps from app store"
 echo "- FreckleTimer"
 echo "- Todoist"
-echo "- Monosnap"
 echo "- Micro snitch"
 echo "- FoldingText"
 echo "- Deckset"
