@@ -25,7 +25,11 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 echo "Linking shell theme"
 ln -sf $HOME/.oh-my-zsh-themes/pieceofcode.zsh-theme $HOME/.oh-my-zsh/themes/pieceofcode.zsh-theme
 
-echo "Linking zsh configs" ln -sf $HOME/dotfiles/zsh/.zsh $HOME/ ln -sf $HOME/dotfiles/zsh/.zshenv $HOME/ ln -sf $HOME/dotfiles/zsh/.zshrc $HOME/ ln -sf $HOME/dotfiles/zsh/.zshrc.d $HOME/
+echo "Linking zsh configs"
+ln -sf $HOME/dotfiles/zsh/.zsh $HOME/
+ln -sf $HOME/dotfiles/zsh/.zshenv $HOME/
+ln -sf $HOME/dotfiles/zsh/.zshrc $HOME/
+ln -sf $HOME/dotfiles/zsh/.zshrc.d $HOME/
 
 echo "Linking vim configs"
 ln -sf $HOME/dotfiles/vim/.vimrc $HOME/
