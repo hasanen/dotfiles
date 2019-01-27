@@ -15,7 +15,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 
 export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
+export PATH="$GOENV_ROOT/bin:$HOME/go/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 
