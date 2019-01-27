@@ -29,6 +29,7 @@ brew install watchman
 brew install fzf
 brew install erlang
 brew install rbenv
+brew install goenv
 
 echo "Installing caskroom"
 brew install caskroom/cask/brew-cask

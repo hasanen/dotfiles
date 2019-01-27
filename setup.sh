@@ -66,3 +66,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | b
 
 echo "Install kiex"
 \curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
+
+
+mkdir ~/tools
+git clone https://github.com/ffuf/ffuf.git ~/tools/ffuf
+
