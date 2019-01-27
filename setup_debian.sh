@@ -24,6 +24,7 @@ $sudo apt-get install -y ffmpeg \
   mosh \
   screenfetch \
   vlc \
-  docker-ce
+  docker-ce \
+  libavcodec-extra-53
 
 

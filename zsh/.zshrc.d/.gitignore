@@ -1,2 +1,0 @@
-#scripts that contains private data should not be persisted in git
-9*.z
