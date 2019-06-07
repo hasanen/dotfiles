@@ -14,7 +14,7 @@ if [ ! -d "$HOME/.zsh" ]; then
   ln -sf $HOME/dotfiles/zsh/.zshrc $HOME/
 fi
 
-if [ ! -d "$HOME/.zsh" ]; then
+if [ ! -d "$HOME/.vim" ]; then
   echo "Setting up vim"
   ln -sf $HOME/dotfiles/vim/.vimrc $HOME/
   mkdir -p $HOME/.vim/bundle
