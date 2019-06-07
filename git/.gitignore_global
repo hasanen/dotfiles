@@ -17,3 +17,4 @@ project_notes.md
 *.xcodeproj/project.xcworkspace/xcshareddata/
 .vscode
 *.code-workspace
+*.dump
