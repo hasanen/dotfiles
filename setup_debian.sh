@@ -12,6 +12,10 @@ $sudo add-apt-repository \
    stable"
 $sudo apt-get update
 $sudo apt-get install -y ffmpeg \
+  gnome-tweak-tool \
+  libssl-dev \
+  libreadline-dev \
+  zlib1g-dev \
   ansible \
   git \
   p7zip \
