@@ -71,6 +71,7 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   echo "- Micro snitch"
   echo "- FoldingText"
   echo "- Deckset"
+  echo "- Dozer https://github.com/Mortennn/Dozer"
 fi
 
 # Ask for the administrator password upfront
