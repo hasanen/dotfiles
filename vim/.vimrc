@@ -58,6 +58,7 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 nmap <silent> <leader>l :TestLast<CR>
 let test#strategy = "dispatch"
+let test#ruby#rspec#executable = 'bundle exec rspec'
 
 " vim-rails mappings
 map <leader>a :A<CR> 
