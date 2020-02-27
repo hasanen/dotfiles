@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ISSUE_NUMBER=$1
+
+
+if [ -z "$ISSUE_NUMBER" ];then
+  echo "Give issue number."
+else
+  URL=`curl -s https://magpi.raspberrypi.org/issues/$ISSUE_NUMBER/pdf |grep refresh | awk -F '\"' '// {print $4}'|awk -F \= '// {print $2}'`
+  FILENAME=`echo $URL | awk -F '/|\\\\?' '{print $(NF-1)}'`
+  curl -o $FILENAME $URL
+fi
