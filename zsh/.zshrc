@@ -4,7 +4,7 @@
 alias youtube2mp3="youtube-dl -t --extract-audio --audio-format=mp3"
 alias gdnws='git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
  
-# docker
+## docker
 alias dcr='docker-compose run'
 alias dcre='docker-compose restart'
 alias dcu='docker-compose up'
@@ -15,8 +15,11 @@ alias ds='docker stats --format "table {{.Name}}\t{{.Container}}\t{{.CPUPerc}}\t
 alias dps='docker ps'
 alias drti='dr -ti'
 
-#zsh
+##zsh
 alias zshch='source ~/.zshrc'
+
+## ruby/rails related
+alias be='bundle exec'
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [[ -s $HOME/.rsvm/rsvm.sh ]] && . $HOME/.rsvm/rsvm.sh # This loads RSVM
