@@ -90,5 +90,10 @@ if [ ! -d "$HOME/.goenv" ]; then
   goenv global 1.11.4
 fi
 
+if [ ! -f "$HOME/.railsrc" ]; then
+  echo "Setting up rails configs"
+  ln -sf $HOME/dotfiles/rails/.railsrc $HOME/
+fi
+
 source ~/.zshrc
 go get github.com/ffuf/ffuf
