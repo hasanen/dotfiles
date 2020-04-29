@@ -1,19 +1,19 @@
 [user]
-	name = Joni Hasanen
-	email = joni.hasanen@pieceofcode.net
+  name = Joni Hasanen
+  email = joni@pieceofcode.com
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
+  editor = vim
+  excludesfile = ~/.gitignore_global
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+  branch = auto
+  diff = auto
+  status = auto
   ui = auto
 
 [diff]
   tool = vimdiff
-	compactionHeuristic = true
+  compactionHeuristic = true
 
 [merge]
   tool = vimdiff
@@ -24,11 +24,11 @@
 
   # will put a file into gitignore
   ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 
 [branch]
   autosetuprebase = always
 [commit]
-	template = ~/dotfiles/git/.git-commit-template
+  template = ~/dotfiles/git/.git-commit-template
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
