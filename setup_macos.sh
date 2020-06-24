@@ -6,15 +6,12 @@ if [ ! -d "/usr/local/Homebrew" ]; then
 
   echo "Installing cli software"
   brew install ffmpeg
-  brew install ansible
   brew install git
   brew install p7zip
   brew install ssh-copy-id
   brew install the_silver_searcher
   brew install tmux
   brew install tree
-  brew install wget
-  brew install youtube-dl
   brew install vim --override-system-vi
   brew install coreutils
   brew install zsh
@@ -25,53 +22,40 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
   brew install heroku/brew/heroku
   brew install reattach-to-user-namespace
-  brew install watchman
   brew install fzf
-  brew install erlang
 
   echo "Installing caskroom"
   brew install caskroom/cask/brew-cask
 
   echo "Installing gui software"
   brew cask install 1password
-  brew cask install java
   brew cask install vlc
   brew cask install alfred
   brew cask install spotify
   brew cask install iterm2
   brew cask install firefox
   brew cask install libreoffice
-  brew cask install virtualbox
-  brew cask install heroku-toolbelt
   brew cask install dash
   brew cask install toggl
   brew cask install adobe-creative-cloud
   brew cask install docker
   brew cask install little-snitch
   open /usr/local/Caskroom/little-snitch/**/Little\ Snitch\ Installer.app
-  brew cask install standard-notes
   brew cask install kindle
   brew cask install android-sdk
   brew cask install android-studio
-  brew cask install postgres
-  brew cask install flowdock
   brew cask install slack
   brew cask install postman
-  brew cask install thunderbird
-  brew cask install freedome
-  brew cask install licecap
   brew cask install telegram
 
   echo "Following apps needs to be installed manually:"
   echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
 
   echo "Install following apps from app store"
-  echo "- FreckleTimer"
+  echo "- NokoTimer"
   echo "- Todoist"
   echo "- Micro snitch"
-  echo "- FoldingText"
   echo "- Deckset"
-  echo "- Dozer https://github.com/Mortennn/Dozer"
 fi
 
 # Ask for the administrator password upfront
@@ -111,9 +95,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
-# Disable Resume system-wide
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
-
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -121,18 +102,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-# Follow the keyboard focus while zoomed in
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
@@ -187,9 +159,6 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-
-# Disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
