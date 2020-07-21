@@ -162,6 +162,13 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#config_precedence = 'prefer-file'
 
+" show linenumber/char position
+set ruler
+
+" Highlight 
+let &colorcolumn=join(range(80,100),",").join(range(120,999),",")
+hi ColorColumn guibg=#262D51 ctermbg=233
+
 vmap <leader>y :w !pbcopy<CR><CR>
 vmap <leader>mnbe "tdma?describe<CR>obefore :each do<CR>end<CR><esc>k"tP'a
 nnoremap <leader>os :vsplit<cr><C-j>:A<cr>
