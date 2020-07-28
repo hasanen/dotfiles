@@ -32,3 +32,5 @@
   template = ~/dotfiles/git/.git-commit-template
 [credential]
   helper = osxkeychain
+[init]
+	defaultBranch = main
