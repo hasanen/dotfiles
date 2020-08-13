@@ -28,3 +28,6 @@ export PATH=$PATH:$HOME/bin
 #Locales
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+
+#QMK
+export QMK_HOME='~/code/qmk_firmware'

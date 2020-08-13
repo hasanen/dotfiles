@@ -95,5 +95,10 @@ if [ ! -f "$HOME/.railsrc" ]; then
   ln -sf $HOME/dotfiles/rails/.railsrc $HOME/
 fi
 
+if [ ! -f "$HOME/code/qmk_firmware" ]; then
+  echo "Setting up qmk"
+  python3 -m pip install qmk
+fi
+
 source ~/.zshrc
 go get github.com/ffuf/ffuf
