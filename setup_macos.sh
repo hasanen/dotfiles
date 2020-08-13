@@ -23,6 +23,7 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   brew install heroku/brew/heroku
   brew install reattach-to-user-namespace
   brew install fzf
+  brew install git-secrets
 
   echo "Installing caskroom"
   brew install caskroom/cask/brew-cask

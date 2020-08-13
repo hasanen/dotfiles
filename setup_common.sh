@@ -30,6 +30,12 @@ if [ ! -f "$HOME/.gitconfig" ]; then
   ln -sf $HOME/dotfiles/git/.gitignore_global $HOME/
 fi
 
+if [ ! -f "$HOME/.git-templates/git-secrets" ]; then
+  echo "Install git secrets"
+  git secrets --install ~/.git-templates/git-secrets
+  git config --global init.templateDir ~/.git-templates/git-secrets
+fi
+
 if [ ! -d "$HOME/bin" ]; then
   echo "Linking bin scripts"
   mkdir $HOME/bin
