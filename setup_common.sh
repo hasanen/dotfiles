@@ -19,7 +19,7 @@ if [ ! -d "$HOME/.vim" ]; then
   ln -sf $HOME/dotfiles/vim/.vimrc $HOME/
   mkdir -p $HOME/.vim/bundle
   mkdir -p $HOME/.vim/colors
-  wget https://raw.githubusercontent.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim -P $HOME/.vim/colors/
+  curl https://raw.githubusercontent.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim -o $HOME/.vim/colors/grb256.vim
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
   vim +PluginInstall +q +q
 fi
