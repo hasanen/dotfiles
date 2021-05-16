@@ -2,17 +2,16 @@ DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
 export TERMINAL=guake
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export EDITOR=vim
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 export ANDROID_HOME=/usr/local/share/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools 
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tool:$PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$HOME/go/bin:$PATH"
@@ -20,10 +19,10 @@ export PATH="$GOENV_ROOT/bin:$HOME/go/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 
 # Heroku 
-export PATH="$PATH:/usr/local/heroku/bin"
+export PATH="/usr/local/heroku/bin:$PATH"
 #
 # My own scripts
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin:$PATH
 
 #Locales
 export LC_ALL=en_US.UTF-8  
@@ -31,3 +30,5 @@ export LANG=en_US.UTF-8
 
 #QMK
 export QMK_HOME='~/code/qmk_firmware'
+source "$HOME/.rsvm/current/cargo/env"
+source "$HOME/.cargo/env"
