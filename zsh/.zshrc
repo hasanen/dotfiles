@@ -3,23 +3,28 @@
 # Aliases
 alias youtube2mp3="youtube-dl -t --extract-audio --audio-format=mp3"
 alias gdnws='git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
+alias gitdiff="git difftool HEAD^ HEAD"
  
 ## docker
-alias dcr='docker-compose run'
-alias dcre='docker-compose restart'
-alias dcu='docker-compose up'
-alias dcs='docker-compose stop'
-alias dcb='docker-compose build'
+alias dcr='docker compose run'
+alias dcre='docker compose restart'
+alias dcu='docker compose up'
+alias dcs='docker compose stop'
+alias dcb='docker compose build'
 alias dr='docker run'
 alias ds='docker stats --format "table {{.Name}}\t{{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}\t{{.PIDs}}"'
 alias dps='docker ps'
 alias drti='dr -ti'
+
+### apps
+alias jupyter_pwd='docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/all-spark-notebook'
 
 ##zsh
 alias zshch='source ~/.zshrc'
 
 ## ruby/rails related
 alias be='bundle exec'
+alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [[ -s $HOME/.rsvm/rsvm.sh ]] && . $HOME/.rsvm/rsvm.sh # This loads RSVM
