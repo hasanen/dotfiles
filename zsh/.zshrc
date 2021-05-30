@@ -43,6 +43,6 @@ source $ZSH/oh-my-zsh.sh
 unsetopt nomatch
 
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(goenv init -)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
