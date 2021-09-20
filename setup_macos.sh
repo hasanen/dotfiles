@@ -16,7 +16,6 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   brew install coreutils
   brew install zsh
   brew install ctags
-  brew install yarn
   brew install mosh
   brew install screenfetch
   sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh

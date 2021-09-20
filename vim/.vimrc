@@ -179,3 +179,7 @@ nnoremap <leader>e :Explore<cr>
 nmap <c-p> :Files<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>r :Tags<CR>
+
+" Split long ruby line to multiple lines, https://vi.stackexchange.com/a/7819
+command! SplitDot let _s=@/ <bar> s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g <bar> let @/=_s <bar> keepjumps normal! ``=']']
+nnoremap <Leader>sd :SplitDot<CR>
