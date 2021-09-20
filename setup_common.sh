@@ -30,12 +30,6 @@ if [ ! -f "$HOME/.gitconfig" ]; then
   ln -sf $HOME/dotfiles/git/.gitignore_global $HOME/
 fi
 
-if [ ! -f "$HOME/.git-templates/git-secrets" ]; then
-  echo "Install git secrets"
-  git secrets --install ~/.git-templates/git-secrets
-  git config --global init.templateDir ~/.git-templates/git-secrets
-fi
-
 if [ ! -d "$HOME/bin" ]; then
   echo "Linking bin scripts"
   mkdir $HOME/bin
@@ -45,8 +39,6 @@ fi
 if [ ! -f "$HOME/.tmux.conf" ]; then
   echo "Setting up tmux"
   ln -sf $HOME/dotfiles/tmux/.tmux.conf $HOME/
-  ln -sf $HOME/dotfiles/tmux/tmux-wt-wp $HOME/bin/
-  ln -sf $HOME/dotfiles/tmux/tmux-rails $HOME/bin/
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
@@ -71,11 +63,6 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 fi
 
-if [ ! -d "$HOME/.kiex" ]; then
-  echo "Install kiex"
-  \curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
-fi
-
 if [ ! -d "$HOME/.pyenv" ]; then
   echo "Install pyenv"
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
@@ -89,22 +76,9 @@ if [ ! -d "$HOME/.rbenv" ]; then
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 fi
 
-if [ ! -d "$HOME/.goenv" ]; then
-  echo "Install goenv"
-  git clone https://github.com/syndbg/goenv.git $HOME/.goenv
-  goenv install 1.11.4
-  goenv global 1.11.4
-fi
-
 if [ ! -f "$HOME/.railsrc" ]; then
   echo "Setting up rails configs"
   ln -sf $HOME/dotfiles/rails/.railsrc $HOME/
 fi
 
-if [ ! -f "$HOME/code/qmk_firmware" ]; then
-  echo "Setting up qmk"
-  python3 -m pip install qmk
-fi
-
 source ~/.zshrc
-go get github.com/ffuf/ffuf
