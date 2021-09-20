@@ -34,4 +34,3 @@
   helper = osxkeychain
 [init]
 	defaultBranch = main
-	templateDir = /Users/hasanen/.git-templates/git-secrets
