@@ -28,6 +28,12 @@ alias zshch='source ~/.zshrc'
 alias be='bundle exec'
 alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
 
+
+# Functions
+otp () {
+  python -c "import pyotp; print(pyotp.TOTP('$1').now())"
+}
+
 [[ -s $HOME/.rsvm/rsvm.sh ]] && . $HOME/.rsvm/rsvm.sh # This loads RSVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
