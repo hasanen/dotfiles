@@ -5,14 +5,8 @@ if [ $1 ]; then
 fi
 
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | $sudo apt-key add -
-$sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
 $sudo apt-get update
 $sudo apt-get install -y ffmpeg \
-  gnome-tweak-tool \
   libssl-dev \
   libreadline-dev \
   zlib1g-dev \
@@ -27,8 +21,4 @@ $sudo apt-get install -y ffmpeg \
   zsh \
   mosh \
   screenfetch \
-  vlc \
-  docker-ce \
-  docker-compose
-
-
+  vlc

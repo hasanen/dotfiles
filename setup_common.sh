@@ -71,7 +71,7 @@ fi
 if [ ! -d "$HOME/.rbenv" ]; then
   echo "Install rbenv"
   git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
-  ~/.rbenv/bin/rbenv init
+  eval "$(~/.rbenv/bin/rbenv init - zsh)"
   mkdir -p "$(rbenv root)"/plugins
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 fi
