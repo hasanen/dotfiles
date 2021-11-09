@@ -41,7 +41,7 @@ otp () {
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="pieceofcode"
-plugins=(osx git rvm pass)
+plugins=(macos git rvm pass)
 source $ZSH/oh-my-zsh.sh
 
 # Disable pattern matching to make [] etc chars to work "normally"
