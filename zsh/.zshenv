@@ -32,3 +32,4 @@ export LANG=en_US.UTF-8
 export QMK_HOME='~/code/qmk_firmware'
 
 source "$HOME/.rsvm/current/cargo/env"
+. "/Users/hasanen/.rsvm/current/cargo/env"

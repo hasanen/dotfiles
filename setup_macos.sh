@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [ ! -d "/usr/local/Homebrew" ]; then
+if [ ! -d "/opt/homebrew" ]; then
   echo "Installing brew"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
   echo "Installing cli software"
   brew install ffmpeg
@@ -12,39 +14,40 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   brew install the_silver_searcher
   brew install tmux
   brew install tree
-  brew install vim --override-system-vi
+  brew install vim
   brew install coreutils
   brew install zsh
   brew install ctags
   brew install mosh
   brew install screenfetch
-  sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+  sudo dscl . -create /Users/$USER UserShell /bin/zsh
   brew install heroku/brew/heroku
   brew install reattach-to-user-namespace
   brew install fzf
   brew install git-secrets
 
   echo "Installing caskroom"
-  brew install caskroom/cask/brew-cask
+  brew tap homebrew/cask
 
   echo "Installing gui software"
-  brew cask install 1password
-  brew cask install vlc
-  brew cask install alfred
-  brew cask install spotify
-  brew cask install iterm2
-  brew cask install firefox
-  brew cask install libreoffice
-  brew cask install dash
-  brew cask install toggl
-  brew cask install adobe-creative-cloud
-  brew cask install docker
-  brew cask install little-snitch
-  open /usr/local/Caskroom/little-snitch/**/Little\ Snitch\ Installer.app
-  brew cask install kindle
-  brew cask install slack
-  brew cask install postman
-  brew cask install telegram
+  brew install 1password
+  brew install vlc
+  brew install alfred
+  brew install spotify
+  brew install iterm2
+  brew install firefox
+  brew install libreoffice
+  brew install dash
+  brew install toggl-track
+  brew install adobe-creative-cloud
+  brew install docker
+  brew install little-snitch
+  brew install kindle
+  brew install slack
+  brew install postman
+  brew install telegram
+  brew install visual-studio-code
+  brew install qsync-client
 
   echo "Following apps needs to be installed manually:"
   echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"

@@ -49,8 +49,9 @@ unsetopt nomatch
 
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
-eval "$(goenv init -)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/hasanen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hasanen/google-cloud-sdk/path.zsh.inc'; fi
