@@ -42,8 +42,6 @@ if [ ! -d "/usr/local/Homebrew" ]; then
   brew cask install little-snitch
   open /usr/local/Caskroom/little-snitch/**/Little\ Snitch\ Installer.app
   brew cask install kindle
-  brew cask install android-sdk
-  brew cask install android-studio
   brew cask install slack
   brew cask install postman
   brew cask install telegram
@@ -53,7 +51,7 @@ if [ ! -d "/usr/local/Homebrew" ]; then
 
   echo "Install following apps from app store"
   echo "- NokoTimer"
-  echo "- Todoist"
+  echo "- Magnet"
   echo "- Micro snitch"
   echo "- Deckset"
 fi
