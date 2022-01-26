@@ -28,6 +28,12 @@ alias zshch='source ~/.zshrc'
 alias be='bundle exec'
 alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
 
+## heroku
+alias hcr="heroku console -r"
+alias hca="heroku console --app"
+alias hltr="heroku logs --tail -r"
+alias hlta="heroku logs --tail --app"
+
 
 # Functions
 otp () {
