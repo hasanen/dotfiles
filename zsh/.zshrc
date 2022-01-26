@@ -57,7 +57,12 @@ eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+UNAME_MACHINE="$(/usr/bin/uname -m)"
+
+if [[ "${UNAME_MACHINE}" == "arm64" ]]
+then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/hasanen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hasanen/google-cloud-sdk/path.zsh.inc'; fi
