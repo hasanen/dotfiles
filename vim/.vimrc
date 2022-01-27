@@ -132,7 +132,7 @@ augroup END " }
 " remove white space
 autocmd FileType ruby,rb,yml,sh,py,feature,txt,md,js,jsx,coffee,slim,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=$BREW_FZF_PATH
 let g:fzf_layout = { 'down': '~40%' }
 
 let g:airline#extensions#ale#enabled = 1
