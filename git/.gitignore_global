@@ -5,9 +5,6 @@ __pycache__
 .vagrant
 .ruby-gemset
 tags
-.env.local
-.env.test
-.env.development
 .config/hub
 project_notes.md
 .project_notes.md
