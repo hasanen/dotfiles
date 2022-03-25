@@ -53,9 +53,9 @@ if [ ! -d "$HOME/.bundle" ]; then
   ln -sf $HOME/dotfiles/bundle/config $HOME/.bundle/config
 fi
 
-if [ ! -d "$HOME/.rsvm" ]; then
-  echo "Installing RSVM"
-  \curl -L https://raw.github.com/sdepold/rsvm/master/install.sh | sh
+if [ ! -d "$HOME/.cargo" ]; then
+  echo "Installing installing rust"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 if [ ! -d "$HOME/.nvm" ]; then
