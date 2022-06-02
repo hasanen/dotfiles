@@ -34,6 +34,11 @@ alias hca="heroku console --app"
 alias hltr="heroku logs --tail -r"
 alias hlta="heroku logs --tail --app"
 
+## java
+JAVA_VERSION_TAG=11-jdk-oraclelinux7
+alias java="docker run openjdk:$JAVA_VERSION_TAG java"
+alias javac="docker run openjdk:$JAVA_VERSION_TAG javac"
+
 
 # Functions
 otp () {
