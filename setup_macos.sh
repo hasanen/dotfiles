@@ -327,3 +327,11 @@ for app in "Dock" \
   killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+
+###############################################################################
+# VS Code                                                                     #
+###############################################################################
+
+# Enable key-repeat. Source: https://vimforvscode.com/enable-key-repeat-vim
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
