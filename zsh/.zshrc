@@ -35,7 +35,7 @@ alias hltr="heroku logs --tail -r"
 alias hlta="heroku logs --tail --app"
 
 ## java
-JAVA_VERSION_TAG=11-jdk-oraclelinux7
+JAVA_VERSION_TAG=20-jdk-oraclelinux8
 alias java="docker run openjdk:$JAVA_VERSION_TAG java"
 alias javac="docker run openjdk:$JAVA_VERSION_TAG javac"
 

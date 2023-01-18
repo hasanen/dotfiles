@@ -13,6 +13,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mfukar/robotframework-vim'
 Plugin 'moll/vim-node' "Like vim-rails but for node
 Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'posva/vim-vue'
 Plugin 'prettier/vim-prettier'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
@@ -30,8 +31,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 "Plugin 'w0rp/ale'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'mhinz/vim-mix-format'
+"Plugin 'elixir-editors/vim-elixir'
+"Plugin 'mhinz/vim-mix-format'
 Plugin 'github/copilot.vim'
 
 " All of your Plugins must be added before the following line
