@@ -81,4 +81,9 @@ if [ ! -f "$HOME/.railsrc" ]; then
   ln -sf $HOME/dotfiles/rails/.railsrc $HOME/
 fi
 
+if [ ! -f "$HOME/.local/bin/poetry" ]; then
+  echo "Install Poetry"
+  curl -sSL https://install.python-poetry.org | python3 -
+fi
+
 source ~/.zshrc

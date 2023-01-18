@@ -6,6 +6,8 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 export ANDROID_HOME=/usr/local/share/android-sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tool:$PATH
@@ -50,3 +52,4 @@ export LANG=en_US.UTF-8
 export QMK_HOME='~/code/qmk_firmware'
 
 source $HOME/.cargo/env
+#source $HOME/.rsvm/current/cargo/env

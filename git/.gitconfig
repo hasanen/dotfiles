@@ -30,6 +30,7 @@
   autosetuprebase = always
 [commit]
   template = ~/dotfiles/git/.git-commit-template
+	gpgsign = true
 [credential]
   helper = osxkeychain
 [init]
