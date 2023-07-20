@@ -21,6 +21,10 @@ alias drti='dr -ti'
 ### apps
 alias jupyter_pwd='docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/all-spark-notebook'
 
+## misc
+alias debian='docker run -v "$PWD":/opt/host-pwd -ti debian'
+alias kali='docker run -v "$PWD":/opt/host-pwd -ti kalilinux/kali-last-release'
+
 ##zsh
 alias zshch='source ~/.zshrc'
 
