@@ -39,13 +39,11 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install libreoffice
   brew install dash
   brew install toggl-track
-  brew install adobe-creative-cloud
   brew install docker
   brew install little-snitch
   brew install kindle
   brew install slack
   brew install postman
-  brew install telegram
   brew install visual-studio-code
   brew install qsync-client
 
@@ -53,10 +51,8 @@ if [ ! -d "/opt/homebrew" ]; then
   echo "- Firefox developer edition: https://www.mozilla.org/en-US/firefox/developer/"
 
   echo "Install following apps from app store"
-  echo "- NokoTimer"
   echo "- Magnet"
   echo "- Micro snitch"
-  echo "- Deckset"
 fi
 
 # Ask for the administrator password upfront

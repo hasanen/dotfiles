@@ -1,6 +1,7 @@
 [user]
   name = Joni Hasanen
   email = joni@pieceofcode.com
+  signingkey = F6FBD66B087C9160
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global

@@ -2,7 +2,7 @@
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Setting up oh-my-zshs"
-  git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+  git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
   git clone https://github.com/hasanen/oh-my-zsh-themes.git $HOME/.oh-my-zsh-themes
   ln -sf $HOME/.oh-my-zsh-themes/pieceofcode.zsh-theme $HOME/.oh-my-zsh/themes/pieceofcode.zsh-theme
 fi
@@ -66,6 +66,7 @@ fi
 if [ ! -d "$HOME/.pyenv" ]; then
   echo "Install pyenv"
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+  eval "$(pyenv init -)"
 fi
 
 if [ ! -d "$HOME/.rbenv" ]; then
@@ -74,11 +75,6 @@ if [ ! -d "$HOME/.rbenv" ]; then
   eval "$(~/.rbenv/bin/rbenv init - zsh)"
   mkdir -p "$(rbenv root)"/plugins
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-fi
-
-if [ ! -f "$HOME/.railsrc" ]; then
-  echo "Setting up rails configs"
-  ln -sf $HOME/dotfiles/rails/.railsrc $HOME/
 fi
 
 if [ ! -f "$HOME/.local/bin/poetry" ]; then

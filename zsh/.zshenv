@@ -8,9 +8,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export ANDROID_HOME=/usr/local/share/android-sdk
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tool:$PATH
+export GPG_TTY=$(tty)
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
