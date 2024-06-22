@@ -10,11 +10,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export GPG_TTY=$(tty)
 
+# Homebrew
+eval "$(/usr/local/bin/brew shellenv)"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.pyenv/shims:$PATH"
-export PYENV_SHELL=zsh
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 source "$PYENV_ROOT/completions/pyenv.zsh"
 command pyenv rehash 2>/dev/null
 pyenv() {
