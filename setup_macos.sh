@@ -25,6 +25,8 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install reattach-to-user-namespace
   brew install fzf
   brew install git-secrets
+  brew install bat
+  brew install tlrc
 
   echo "Installing caskroom"
   brew tap homebrew/cask
