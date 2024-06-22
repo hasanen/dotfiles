@@ -36,16 +36,14 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install vlc
   brew install alfred
   brew install spotify
-  brew install iterm2
+  brew install alacritty
   brew install firefox
   brew install libreoffice
   brew install dash
   brew install toggl-track
   brew install docker
   brew install little-snitch
-  brew install kindle
   brew install slack
-  brew install postman
   brew install visual-studio-code
   brew install qsync-client
 
