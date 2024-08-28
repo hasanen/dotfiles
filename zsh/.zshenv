@@ -11,7 +11,18 @@ export PATH="$HOME/.local/bin:$PATH"
 export GPG_TTY=$(tty)
 
 # Homebrew
-eval "$(/usr/local/bin/brew shellenv)"
+if [ "$(uname -s)" = "Darwin" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Check if the system is Linux and start ssh-agent if not already running
+if [ "$(uname -s)" = "Linux" ]; then
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        eval "$(ssh-agent -s)"
+    fi
+fi
+
+
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

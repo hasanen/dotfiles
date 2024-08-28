@@ -17,7 +17,7 @@ $sudo apt-get install -y ffmpeg \
   tmux \
   tree \
   wget \
-  youtube-dl \
+  curl \
   zsh \
   mosh \
   screenfetch \
