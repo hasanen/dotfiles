@@ -18,3 +18,4 @@ project_notes.md
 .terraform
 terraform.tfstate
 terraform.tfstate.backup
+.idea/
