@@ -10,10 +10,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export GPG_TTY=$(tty)
 
-# Homebrew
-if [ "$(uname -s)" = "Darwin" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 
 # Check if the system is Linux and start ssh-agent if not already running
 if [ "$(uname -s)" = "Linux" ]; then
@@ -65,3 +61,8 @@ export QMK_HOME='~/code/qmk/qmk_firmware'
 
 source $HOME/.cargo/env
 #source $HOME/.rsvm/current/cargo/env
+# Homebrew
+if [ "$(uname -s)" = "Darwin" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+

@@ -27,6 +27,7 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install git-secrets
   brew install bat
   brew install tlrc
+  brew install starship
 
   echo "Installing caskroom"
   brew tap homebrew/cask

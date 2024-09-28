@@ -53,9 +53,7 @@ otp () {
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Oh my zsh settings
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="pieceofcode"
 plugins=(macos git rvm pass)
 source $ZSH/oh-my-zsh.sh
 
@@ -63,7 +61,6 @@ source $ZSH/oh-my-zsh.sh
 unsetopt nomatch
 
 eval "$(rbenv init -)"
-eval "$(pyenv init --path)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
@@ -86,3 +83,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 # for picocom
 alias picocom="stty erase ^H && picocom"
+
+# starship init
+eval "$(starship init zsh)"

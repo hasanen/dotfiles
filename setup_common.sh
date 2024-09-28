@@ -3,8 +3,6 @@
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Setting up oh-my-zshs"
   git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
-  git clone https://github.com/hasanen/oh-my-zsh-themes.git $HOME/.oh-my-zsh-themes
-  ln -sf $HOME/.oh-my-zsh-themes/pieceofcode.zsh-theme $HOME/.oh-my-zsh/themes/pieceofcode.zsh-theme
 fi
 
 if [ ! -d "$HOME/.zsh" ]; then
@@ -13,6 +11,13 @@ if [ ! -d "$HOME/.zsh" ]; then
   ln -sf $HOME/dotfiles/zsh/.zshenv $HOME/
   ln -sf $HOME/dotfiles/zsh/.zshrc $HOME/
 fi
+
+if [ ! -d "$HOME/.config/starship.toml" ]; then
+  echo "Linking starship configs"
+  mkdir -p ~/.config
+  ln -sf $HOME/dotfiles/starship/starship.toml $HOME/.config/
+fi
+
 
 if [ ! -d "$HOME/.vim" ]; then
   echo "Setting up vim"
