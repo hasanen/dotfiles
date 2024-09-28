@@ -9,3 +9,4 @@ pip install --upgrade pwntools
 
 $sudo rm /etc/ssh/ssh_host_*
 $sudo dpkg-reconfigure openssh-server
+curl -sS https://starship.rs/install.sh | sh

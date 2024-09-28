@@ -22,3 +22,5 @@ $sudo apt-get install -y ffmpeg \
   mosh \
   screenfetch \
   vlc
+
+curl -sS https://starship.rs/install.sh | sh
