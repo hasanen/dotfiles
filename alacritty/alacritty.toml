@@ -1,0 +1,5 @@
+[font]
+size = 14.0
+
+[env]
+TERM = "xterm-256color"
