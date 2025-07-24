@@ -40,7 +40,9 @@ $sudo apt-get install -y ffmpeg \
   syncthing \ 
   xfce4-whiskermenu-plugin \
   1password \
-  code 
+  code \
+  fprintd \
+  libpam-fprintd
 
 
 curl -sS https://starship.rs/install.sh | sh
