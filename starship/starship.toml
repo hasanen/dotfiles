@@ -62,6 +62,14 @@ format = '\[[$symbol$branch]($style)\]'
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
 
+[custom.git_email]
+description = "Shows the Git user.email for the current repo"
+command = "git config user.email"
+when = "git rev-parse --is-inside-work-tree"
+format = '\[[$output]($style)\]'
+style = "yellow"
+
+
 [golang]
 format = '\[[$symbol($version)]($style)\]'
 
