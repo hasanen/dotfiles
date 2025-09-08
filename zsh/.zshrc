@@ -28,9 +28,6 @@ alias kali='docker run -v "$PWD":/opt/host-pwd -ti kalilinux/kali-last-release'
 ##zsh
 alias zshch='source ~/.zshrc'
 
-## ruby/rails related
-alias be='bundle exec'
-alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
 
 ## heroku
 alias hcr="heroku console -r"

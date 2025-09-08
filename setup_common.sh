@@ -68,23 +68,4 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 fi
 
-if [ ! -d "$HOME/.pyenv" ]; then
-  echo "Install pyenv"
-  git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
-  eval "$(pyenv init -)"
-fi
-
-if [ ! -d "$HOME/.rbenv" ]; then
-  echo "Install rbenv"
-  git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
-  eval "$(~/.rbenv/bin/rbenv init - zsh)"
-  mkdir -p "$(rbenv root)"/plugins
-  git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-fi
-
-if [ ! -f "$HOME/.local/bin/poetry" ]; then
-  echo "Install Poetry"
-  curl -sSL https://install.python-poetry.org | python3 -
-fi
-
 source ~/.zshrc

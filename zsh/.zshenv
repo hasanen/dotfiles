@@ -18,32 +18,6 @@ if [ "$(uname -s)" = "Linux" ]; then
     fi
 fi
 
-
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-source "$PYENV_ROOT/completions/pyenv.zsh"
-command pyenv rehash 2>/dev/null
-pyenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(pyenv "sh-$command" "$@")"
-    ;;
-  *)
-    command pyenv "$command" "$@"
-    ;;
-  esac
-}
-
 export NVM_DIR="$HOME/.nvm"
 
 # Heroku 
@@ -66,3 +40,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+## ruby/rails related
+alias be='bundle exec'
+#alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
+#eval "$(rv shell init zsh)"
