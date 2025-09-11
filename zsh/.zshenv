@@ -34,13 +34,5 @@ export LANG=en_US.UTF-8
 export QMK_HOME='~/code/qmk/qmk_firmware'
 
 source $HOME/.cargo/env
-#source $HOME/.rsvm/current/cargo/env
-# Homebrew
-if [ "$(uname -s)" = "Darwin" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 
-## ruby/rails related
-alias be='bundle exec'
-#alias rbenv_refresh="git -C /Users/hasanen/.rbenv/plugins/ruby-build pull"
-#eval "$(rv shell init zsh)"
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR

@@ -46,18 +46,16 @@ otp () {
   python -c "import pyotp; print(pyotp.TOTP('$1').now())"
 }
 
-[[ -s $HOME/.rsvm/rsvm.sh ]] && . $HOME/.rsvm/rsvm.sh # This loads RSVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Oh my zsh settings
 ZSH=$HOME/.oh-my-zsh
-plugins=(macos git rvm pass)
+plugins=(macos git)
 source $ZSH/oh-my-zsh.sh
 
 # Disable pattern matching to make [] etc chars to work "normally"
 unsetopt nomatch
 
-eval "$(rbenv init -)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
@@ -77,9 +75,19 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-# for picocom
-alias picocom="stty erase ^H && picocom"
+#
+#source $HOME/.rsvm/current/cargo/env
+# Homebrew
+if [ "$(uname -s)" = "Darwin" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # starship init
 eval "$(starship init zsh)"
+
+## ruby/rails related
+alias be='bundle exec'
+eval "$(rv shell init zsh)"
+
+# for picocom
+alias picocom="stty erase ^H && picocom"
