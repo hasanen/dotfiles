@@ -28,6 +28,8 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install bat
   brew install tlrc
   brew install starship
+  brew install rv
+  brew install uv
 
   echo "Installing caskroom"
   brew tap homebrew/cask

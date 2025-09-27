@@ -1,6 +1,20 @@
 
-# Title (concise, 50 characters or fewer, imperative language — "Fetch" vs "Fetches"). Answers to question: What?
-# If applied, this commit will..
-
-# Body (detailed explanation). Answers to question: Why?
-# number (bug/issue/tracking if applicable) 
+# Commit message (use Conventional Commits format)
+#
+# <type>[optional scope]: <description>
+#
+# Examples:
+#   feat: add config subcommand
+#   fix(config): handle missing config file error
+#   docs: update README with usage instructions
+#   refactor: simplify download logic
+#   test: add tests for config parser
+#   chore: update dependencies
+#
+# Types: feat, fix, docs, style, refactor, perf, test, chore
+#
+# If the commit introduces a breaking change, add a line:
+# BREAKING CHANGE: <description>
+#
+# The body and footer are optional. Wrap lines at 72 characters.
+#

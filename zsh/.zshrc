@@ -60,15 +60,9 @@ unsetopt nomatch
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 
-if [[ "${UNAME_MACHINE}" == "arm64" ]]
-then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  # used in .vimrc
-  export BREW_FZF_PATH=/opt/homebrew/opt/fzf
-else
-  # used in .vimrc
-  export BREW_FZF_PATH=/usr/local/opt/fzf
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# used in .vimrc
+export BREW_FZF_PATH=/opt/homebrew/opt/fzf
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi

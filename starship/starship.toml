@@ -185,7 +185,8 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+#format = '\[[$user]($style)\]'
+disabled = true
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
