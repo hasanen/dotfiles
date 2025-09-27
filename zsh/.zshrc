@@ -69,12 +69,6 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-#
-#source $HOME/.rsvm/current/cargo/env
-# Homebrew
-if [ "$(uname -s)" = "Darwin" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 
 # starship init
 eval "$(starship init zsh)"
