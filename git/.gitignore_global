@@ -19,3 +19,4 @@ project_notes.md
 terraform.tfstate
 terraform.tfstate.backup
 .idea/
+.kiro/

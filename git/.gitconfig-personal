@@ -1,0 +1,6 @@
+[user]
+  email = joni@pieceofcode.com
+  signingkey = F6FBD66B087C9160
+
+[commit]
+  gpgsign = true

@@ -1,0 +1,6 @@
+[user]
+  email = hasanen@disobey.fi
+  signingkey = CAFCC4CC5C17352517C67AE49F9445A99FFBBA4A
+
+[commit]
+  gpgsign = true

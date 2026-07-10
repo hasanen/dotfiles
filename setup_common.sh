@@ -33,6 +33,8 @@ if [ ! -f "$HOME/.gitconfig" ]; then
   echo "Linking git configs"
   ln -sf $HOME/dotfiles/git/.gitconfig $HOME/
   ln -sf $HOME/dotfiles/git/.gitignore_global $HOME/
+  ln -sf $HOME/dotfiles/git/.gitconfig-disobey $HOME/
+  ln -sf $HOME/dotfiles/git/.gitconfig-personal $HOME/
 fi
 
 if [ ! -d "$HOME/bin" ]; then
