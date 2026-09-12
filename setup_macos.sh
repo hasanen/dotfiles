@@ -2,7 +2,7 @@
 
 if [ ! -d "/opt/homebrew" ]; then
   echo "Installing brew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -19,7 +19,7 @@ if [ ! -d "/opt/homebrew" ]; then
   brew install zsh
   brew install ctags
   brew install mosh
-  brew install screenfetch
+  brew install fastfetch
   sudo dscl . -create /Users/$USER UserShell /bin/zsh
   brew install heroku/brew/heroku
   brew install reattach-to-user-namespace

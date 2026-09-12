@@ -33,7 +33,7 @@ $sudo apt-get install -y ffmpeg \
   curl \
   zsh \
   mosh \
-  screenfetch \
+  fastfetch \
   vlc \
   build-essential \
   flatpak \

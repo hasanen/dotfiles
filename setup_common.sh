@@ -1,7 +1,19 @@
 #!/usr/bin/env zsh
 
+set -euo pipefail
+
 REPO_ROOT="${REPO_ROOT:-$(cd -- "$(dirname -- "${0}")" && pwd)}"
 export REPO_ROOT
+
+assert_file_exists() {
+  local path="$1"
+  local label="$2"
+
+  if [[ ! -f "$path" ]]; then
+    echo "ERROR: missing $label at $path" >&2
+    exit 1
+  fi
+}
 
 link_if_safe() {
   local src="$1"
@@ -29,6 +41,14 @@ link_if_safe() {
   ln -s "$src" "$dst"
   echo "Linked: $label"
 }
+
+assert_file_exists "$REPO_ROOT/git/.gitconfig" "Git base config"
+assert_file_exists "$REPO_ROOT/git/.gitignore_global" "Git ignore file"
+assert_file_exists "$REPO_ROOT/git/.gitconfig-disobey" "Git disobey include"
+assert_file_exists "$REPO_ROOT/git/.gitconfig-personal" "Git personal include"
+assert_file_exists "$REPO_ROOT/git/.git-commit-template" "Git commit template"
+
+link_if_safe "$REPO_ROOT/git/.git-commit-template" "$HOME/.git-commit-template" ".git-commit-template"
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   echo "Setting up oh-my-zshs"
@@ -94,5 +114,5 @@ fi
 
 if [[ ! -d "$HOME/.nvm" ]]; then
   echo "Installing NVM"
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh | bash
 fi

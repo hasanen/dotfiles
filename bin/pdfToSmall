@@ -1,2 +1,28 @@
 #!/bin/bash
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$2 $1
+
+set -euo pipefail
+
+if [[ $# -lt 2 ]]; then
+  echo "Usage: pdfToSmall input.pdf output.pdf" >&2
+  exit 1
+fi
+
+INPUT_FILE="$1"
+OUTPUT_FILE="$2"
+
+if [[ ! -f "$INPUT_FILE" ]]; then
+  echo "Error: input PDF not found: $INPUT_FILE" >&2
+  exit 1
+fi
+
+if ! command -v gs >/dev/null 2>&1; then
+  echo "Error: ghostscript (gs) is required but not installed." >&2
+  exit 127
+fi
+
+if [[ -e "$OUTPUT_FILE" ]]; then
+  echo "Refusing to overwrite existing output: $OUTPUT_FILE" >&2
+  exit 1
+fi
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$OUTPUT_FILE" "$INPUT_FILE"

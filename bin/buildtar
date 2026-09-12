@@ -1,28 +1,37 @@
 #!/bin/bash
 
-FOLDER=$1
+set -euo pipefail
 
-if [ -z "$FOLDER" ];then
-	echo "Usage: buildtar folder_to_compress [filename [compress_only_contents]]";
-	exit 1
+if [[ $# -lt 1 ]]; then
+  echo "Usage: buildtar folder_to_compress [output_path] [compress_only_contents]" >&2
+  exit 1
 fi
 
-
-if [ -z "$2" ];then
-	FILENAME="$FOLDER.tar.gz"
-	echo "Using foldername('$FOLDER') as filename('$FILENAME')";
-else
-   FILENAME="$2.tar.gz"
+FOLDER="$1"
+if [[ ! -d "$FOLDER" ]]; then
+  echo "Error: source directory not found: $FOLDER" >&2
+  exit 1
 fi
 
-MOVEINTODIR=$3
-#FOLDER="$(pwd)/$FOLDER"
-#FILENAME="$(pwd)/$FILENAME"
-echo "Building tarbal..";
-
-if [ -z "$MOVEINTODIR" ];then
-	tar czf $FILENAME --exclude=.git* --exclude=nbproject $FOLDER
+if [[ $# -ge 2 && -n "$2" ]]; then
+  FILENAME="$2"
 else
-	tar czf $FILENAME --exclude=.git* --exclude=nbproject -C $FOLDER .
+  FILENAME="${FOLDER}.tar.gz"
+  echo "Using foldername('$FOLDER') as filename('$FILENAME')"
+fi
+
+MOVEINTODIR="${3:-}"
+
+if [[ -e "$FILENAME" ]]; then
+  echo "Refusing to overwrite existing output: $FILENAME" >&2
+  exit 1
+fi
+
+printf 'Building tarball...\n'
+
+if [[ -z "$MOVEINTODIR" ]]; then
+  tar czf "$FILENAME" --exclude=.git* --exclude=nbproject -- "$FOLDER"
+else
+  tar czf "$FILENAME" --exclude=.git* --exclude=nbproject -C "$FOLDER" .
 fi
 

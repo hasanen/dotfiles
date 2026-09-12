@@ -1,11 +1,28 @@
 #!/bin/zsh
- 
+
+DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
+export TERMINAL=guake
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
 # General aliases
-alias youtube2mp3="youtube-dl -t --extract-audio --audio-format=mp3"
+alias youtube2mp3="yt-dlp -x --audio-format=mp3 --embed-metadata"
 alias gdnws='git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 alias gitdiff="git difftool HEAD^ HEAD"
-alias git_purge_merged_branches="git branch --merged | grep -v \* | xargs git branch -D"
- 
+alias reload='source ~/.zshrc'
+alias zshreload='source ~/.zshrc'
+alias zshch='source ~/.zshrc'
+
+git_purge_merged_branches() {
+  local force="${1:-}"
+  if [[ "$force" != "--force" ]]; then
+    echo "This will delete only already-merged local branches with git branch -d."
+    echo "Run: git_purge_merged_branches --force to proceed."
+    return 1
+  fi
+
+  git branch --merged | grep -v '^\*' | xargs -r git branch -d
+}
+
 ## docker
 alias dcr='docker compose run'
 alias dce='docker compose exec'
@@ -25,10 +42,6 @@ alias jupyter_pwd='docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/
 alias debian='docker run -v "$PWD":/opt/host-pwd -ti debian'
 alias kali='docker run -v "$PWD":/opt/host-pwd -ti kalilinux/kali-last-release'
 
-##zsh
-alias zshch='source ~/.zshrc'
-
-
 ## heroku
 alias hcr="heroku console -r"
 alias hca="heroku console --app"
@@ -43,6 +56,20 @@ alias javac="docker run openjdk:$JAVA_VERSION_TAG javac"
 
 # Functions
 otp () {
+  if ! command -v python >/dev/null 2>&1; then
+    echo "otp: Python is required but not found in PATH." >&2
+    return 127
+  fi
+
+  if ! python - <<'PY' >/dev/null 2>&1
+import importlib.util
+raise SystemExit(0 if importlib.util.find_spec('pyotp') else 1)
+PY
+  then
+    echo "otp: pyotp is not installed. Install it with 'python -m pip install pyotp'" >&2
+    return 1
+  fi
+
   python -c "import pyotp; print(pyotp.TOTP('$1').now())"
 }
 
@@ -106,6 +133,10 @@ fi
 
 if [[ -f "$HOME/export-esp.sh" ]]; then
   . "$HOME/export-esp.sh"
+fi
+
+if [[ -n "$QMK_HOME" ]]; then
+  export QMK_HOME="$QMK_HOME"
 fi
 
 if command -v kiro >/dev/null 2>&1; then
