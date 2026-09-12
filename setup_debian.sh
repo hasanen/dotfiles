@@ -37,7 +37,7 @@ $sudo apt-get install -y ffmpeg \
   vlc \
   build-essential \
   flatpak \
-  syncthing \ 
+  syncthing \
   xfce4-whiskermenu-plugin \
   1password \
   code \

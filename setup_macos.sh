@@ -322,8 +322,8 @@ for app in "Dock" \
   "Mail" \
   "Photos" \
   "Safari" \
-  "Terminal" \
-  killall "${app}" &> /dev/null
+  "Terminal"; do
+  killall "${app}" >/dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 

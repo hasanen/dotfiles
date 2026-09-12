@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -euo pipefail
+
+REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+export REPO_ROOT
+
 echo "=== STARTING THE SETUP ==="
 
 unameOut="$(uname -s)"
@@ -8,24 +13,24 @@ case "${unameOut}" in
     Darwin*)    machine=mac;;
 esac
 
-if [ $machine = "mac" ]; then
+if [ "$machine" = "mac" ]; then
   echo "--- SETTING UP MAC ---"
-  ~/dotfiles/setup_macos.sh $1
+  "$REPO_ROOT/setup_macos.sh" "$@"
   echo "--- MAC SETUP DONE ---"
 fi
 
-if [ $machine = "linux" ]; then
+if [ "$machine" = "linux" ]; then
   echo "--- SETTING UP LINUX ---"
-  ~/dotfiles/setup_debian.sh $1
+  "$REPO_ROOT/setup_debian.sh" "$@"
   echo "--- LINUX SETUP DONE ---"
 fi
 if [[ $(uname -a) =~ "kali" ]]; then
   echo "--- SETTING UP KALI ---"
-  ~/dotfiles/setup_kali.sh $1
+  "$REPO_ROOT/setup_kali.sh" "$@"
   echo "--- KALI SETUP DONE ---"
 fi
 
-~/dotfiles/setup_common.sh
+"$REPO_ROOT/setup_common.sh"
 
 chsh -s /bin/zsh
 echo "=== SETUP DONE ==="
