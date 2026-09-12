@@ -46,36 +46,68 @@ otp () {
   python -c "import pyotp; print(pyotp.TOTP('$1').now())"
 }
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+if [[ -n "$NVM_DIR" ]] && [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
 
 ## Oh my zsh settings
-ZSH=$HOME/.oh-my-zsh
-plugins=(macos git)
-source $ZSH/oh-my-zsh.sh
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
+  ZSH="$HOME/.oh-my-zsh"
+  plugins=(macos git)
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
 # Disable pattern matching to make [] etc chars to work "normally"
 unsetopt nomatch
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ -n "$NVM_DIR" ]] && [ -s "$NVM_DIR/bash_completion" ]; then
+  . "$NVM_DIR/bash_completion"
+fi
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# used in .vimrc
-export BREW_FZF_PATH=/opt/homebrew/opt/fzf
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$('/opt/homebrew/bin/brew' shellenv)"
+  export BREW_FZF_PATH="/opt/homebrew/opt/fzf"
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [[ -x "/usr/local/bin/brew" ]]; then
+  eval "$('/usr/local/bin/brew' shellenv)"
+fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
+  . "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
 
-# starship init
-eval "$(starship init zsh)"
+if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
+  . "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
 ## ruby/rails related
 alias be='bundle exec'
-eval "$(rv shell init zsh)"
+if command -v rv >/dev/null 2>&1; then
+  eval "$(rv shell init zsh)"
+fi
 
 # for picocom
 alias picocom="stty erase ^H && picocom"
+
+if [[ -d "/Applications/010 Editor.app/Contents/CmdLine" ]]; then
+  export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
+fi
+
+if [[ -d "$HOME/.lmstudio/bin" ]]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
+
+if [[ -f "$HOME/export-esp.sh" ]]; then
+  . "$HOME/export-esp.sh"
+fi
+
+if command -v kiro >/dev/null 2>&1; then
+  [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+fi
