@@ -103,6 +103,7 @@ else
 fi
 
 link_if_safe "$REPO_ROOT/ctags/.ctags" "$HOME/.ctags" ".ctags"
+link_if_safe "$REPO_ROOT/.wezterm.lua" "$HOME/.wezterm.lua" ".wezterm.lua"
 
 mkdir -p "$HOME/.bundle"
 link_if_safe "$REPO_ROOT/bundle/config" "$HOME/.bundle/config" "bundler config"
